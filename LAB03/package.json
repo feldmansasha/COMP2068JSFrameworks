@@ -1,0 +1,16 @@
+{
+  "name": "connect",
+  "version": "1.0.0",
+  "description": "connect package for lab3",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "connect": "^3.7.0",
+    "nodemon": "^3.1.7",
+    "url": "^0.11.4"
+  }
+}
