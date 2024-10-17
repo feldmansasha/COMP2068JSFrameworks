@@ -13,25 +13,24 @@ i{
   display: flex;
   height: 100%;
   width: 100%;
-  background-color: rgba(33, 37, 41, 0.2);
+  background-color: rgba(33, 37, 41, 0.6);
   position: absolute;
   top: 0;
   bottom: 0;
   z-index: 1;
 }
 .portfolio-item .caption .caption-content {
-  color: #fff;
   margin: auto 2rem 2rem;
 }
 .portfolio-item .caption .caption-content h2, .portfolio-item .caption .caption-content .h2 {
-  font-size: 0.8rem;
+  font-size: 1.3rem;
   text-transform: uppercase;
 }
 .portfolio-item .caption .caption-content p {
-  font-weight: 300;
-  font-size: 1.2rem;
+  font-weight: 500;
+  font-size: 1.3rem;
+  color: white;
 }
-@media (min-width: 992px) {
   .portfolio-item {
     max-width: none;
     margin: 0;
@@ -48,7 +47,7 @@ i{
     margin-left: 5rem;
     margin-right: 5rem;
     margin-bottom: 5rem;
-    color: black;
+    color: white;
   }
   .portfolio-item img {
     transition: -webkit-clip-path 0.25s ease-out;
@@ -62,17 +61,23 @@ i{
             clip-path: inset(2rem);
   }
   .portfolio-item:hover .caption {
-    background-color: rgba(29, 128, 159, 0.9);
+    background-color: rgba(29, 24, 100, 0.9);
     -webkit-clip-path: inset(2rem);
             clip-path: inset(2rem);
   }
-}
 a {
-  text-decoration: none; /* Removes the underline */
-  color: inherit; /* Keeps the link color the same */
+  text-decoration: none;
+  color: inherit;
   display: inline-block;
 }
 
 a:visited {
-  color: inherit; /* Prevents color change after the link is clicked */
+  color: inherit;
+}
+p{
+  font-size: 1.2rem;
+}
+
+.nav-link {
+  font-size: 1.3rem !important;
 }
