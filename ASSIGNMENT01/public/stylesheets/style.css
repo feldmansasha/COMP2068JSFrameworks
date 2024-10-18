@@ -1,7 +1,6 @@
 i{
   font-size: 24px;
 }
-
 .portfolio-item {
   display: block;
   position: relative;
@@ -77,7 +76,6 @@ a:visited {
 p{
   font-size: 1.2rem;
 }
-
 .nav-link {
   font-size: 1.3rem !important;
 }
