@@ -1,0 +1,26 @@
+<a href="/shifts/add">New shift</a>
+<table>
+    <thead>
+        <th>Date</th>
+        <th>Start Time</th>
+        <th>End Time</th>
+        <th>Location</th>
+        <th>Your name</th>
+        <th>Your number</th>
+    </thead>
+    <tbody>
+        {{#each dataset}}
+            <tr>
+                <td>{{this.shiftDate}}</td>
+                <td>{{this.startTime}}</td>
+                <td>{{this.endTime}}</td>
+                <td>{{this.store}}</td>
+                <td>{{this.location}}</td>
+                <td>{{this.yourName}}</td>
+                <td>{{this.yourPhone}}</td>
+                <td><a href="/shifts/edit/{{this.id}}">Accept</a></td>
+                <td><a href="/shifts/delete/{{this.id}}">Delete</a></td>
+            </tr>
+        {{/each}}
+    </tbody>
+</table>
