@@ -15,6 +15,8 @@
                 <th>Location</th>
                 <th>Your Name</th>
                 <th>Your Number</th>
+                <th>Status</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -30,21 +32,29 @@
                      <td>
                         {{#if this.yourName}}
                             {{#if this.yourPhone}}
-                                <span style="color: green;">&#x2705; Taken</span>
+                                <span style="color: red;">&#x274c; Filled</span>
                             {{else}}
-                                <span style="color: red;">&#x274C; Open</span>
+                                <span style="color: green;">&#x2705; Available</span>
                             {{/if}}
                         {{else}}
-                            <span style="color: red;">&#x274C; Open</span>
+                            <span style="color: green;">&#x2705; Available</span>
                         {{/if}}
-                    </td>
-                    <td>
-                        {{#if ../user}}
-                        <a href="/shifts/edit/{{this._id}}" class="btn btn-outline-info btn-sm rounded-pill">Edit</a>
-                        &nbsp;
-                        <a href="/shifts/delete/{{this._id}}" class="btn btn-outline-danger btn-sm rounded-pill">Delete</a>
-                        {{/if}}
-                    </td>
+                        </td>
+                        <td>
+                            {{#if ../user}}
+                                {{#if this.yourName}}
+                                    {{#if this.yourPhone}}
+                                    {{else}}
+                                        <a href="/shifts/edit/{{this._id}}" class="btn btn-info text-white btn-sm rounded-pill">Accept</a>
+                                    {{/if}}
+                                {{else}}
+                                    <a href="/shifts/edit/{{this._id}}" class="btn btn-info text-white btn-sm rounded-pill">Accept</a>
+                                {{/if}}
+                                &nbsp;
+                                <a href="/shifts/delete/{{this._id}}" class="btn btn-danger text-white btn-sm rounded-pill"
+                                onclick="return confirm('Are you sure you want to delete this shift?');">Delete</a>
+                            {{/if}}
+                        </td>
                 </tr>
             {{/each}}
         </tbody>
@@ -91,5 +101,5 @@ document.getElementById("date-header").addEventListener("click", function () {
 </script>
 
 {{#if user}}
-    <a href="/shifts/add" class="btn btn-outline-primary mb-3 rounded-pill">New Shift</a>
+    <a href="/shifts/add" class="btn btn-primary text-white mb-3 rounded-pill">New Shift</a>
 {{/if}}

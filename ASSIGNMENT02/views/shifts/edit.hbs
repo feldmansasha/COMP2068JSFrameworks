@@ -5,10 +5,9 @@
     <div class="col-md-6">
       <label for="shiftDate" class="form-label fw-bold">Shift Date</label>
       <input
-        type="date"
         name="shiftDate"
         id="shiftDate"
-        value="2024-12-07"
+        value="{{formatDate shift.shiftDate}}"
         class="form-control border-secondary"
         readonly
         required
@@ -77,7 +76,7 @@
         id="yourName"
         value="{{shift.yourName}}"
         class="form-control border-primary"
-        placeholder="e.g., John Doe"
+        required
       />
     </div>
     <div class="col-md-6">
@@ -88,10 +87,18 @@
         id="yourPhone"
         value="{{shift.yourPhone}}"
         class="form-control border-primary"
-        placeholder="e.g., 555-1234"
+        pattern="\d{3}-\d{3}-\d{4}"
+        required
       />
     </div>
   </div>
-
-  <button type="submit" class="btn btn-warning w-100 py-2 fw-bold">Save Changes</button>
+  <button
+    type="button"
+    onclick="history.back()"
+    class="btn btn-secondary w-100 py-2 fw-bold mb-3"
+  >
+    Go Back
+  </button>
+  <button type="submit" class="btn btn-warning w-100 py-2 fw-bold">Take the
+    shift</button>
 </form>
