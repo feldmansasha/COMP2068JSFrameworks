@@ -1,8 +1,14 @@
 <div class="table-responsive">
-    <table class="table table-bordered table-striped table-hover">
+    <input
+        id="search-input"
+        type="text"
+        class="form-control mb-3"
+        placeholder="Search by Store or Location"
+    />
+    <table class="table table-bordered table-striped table-hover" id="shift-table">
         <thead class="thead-dark">
             <tr>
-                <th>Date</th>
+                <th id="date-header" data-sort="asc" style="cursor: pointer;">Date &#9650;</th>
                 <th>Start Time</th>
                 <th>End Time</th>
                 <th>Store</th>
@@ -14,13 +20,24 @@
         <tbody>
             {{#each dataset}}
                 <tr>
-                    <td>{{this.shiftDate}}</td>
+                    <td>{{formatDate this.shiftDate}}</td>
                     <td>{{this.startTime}}</td>
                     <td>{{this.endTime}}</td>
                     <td>{{this.store}}</td>
                     <td>{{this.location}}</td>
                     <td>{{this.yourName}}</td>
                     <td>{{this.yourPhone}}</td>
+                     <td>
+                        {{#if this.yourName}}
+                            {{#if this.yourPhone}}
+                                <span style="color: green;">&#x2705; Taken</span>
+                            {{else}}
+                                <span style="color: red;">&#x274C; Open</span>
+                            {{/if}}
+                        {{else}}
+                            <span style="color: red;">&#x274C; Open</span>
+                        {{/if}}
+                    </td>
                     <td>
                         {{#if ../user}}
                         <a href="/shifts/edit/{{this._id}}" class="btn btn-outline-info btn-sm rounded-pill">Edit</a>
@@ -34,7 +51,45 @@
     </table>
     
 </div>
+<script>
+    document.getElementById("search-input").addEventListener("keyup", function () {
+  const query = this.value.toLowerCase();
+  const rows = document.querySelectorAll("#shift-table tbody tr");
+  rows.forEach((row) => {
+      const store = row.cells[3].textContent.toLowerCase();
+      const location = row.cells[4].textContent.toLowerCase();
+
+      if (store.includes(query) || location.includes(query)) {
+          row.style.display = "";
+      } else {
+          row.style.display = "none";
+      }
+  });
+});
+document.getElementById("date-header").addEventListener("click", function () {
+        const rows = Array.from(document.querySelectorAll("#shift-table tbody tr"));
+        const sortDirection = this.getAttribute("data-sort");
+
+        // Toggle sort direction
+        const newSortDirection = sortDirection === "asc" ? "desc" : "asc";
+        this.setAttribute("data-sort", newSortDirection);
+        this.innerHTML = `Date ${newSortDirection === "asc" ? "&#9650;" : "&#9660;"}`;
+
+        // Sort rows
+        rows.sort((rowA, rowB) => {
+            const dateA = new Date(rowA.cells[0].textContent); // Parse date from cell
+            const dateB = new Date(rowB.cells[0].textContent);
+
+            return newSortDirection === "asc" ? dateA - dateB : dateB - dateA;
+        });
+
+        // Append sorted rows back to the table body
+        const tbody = document.querySelector("#shift-table tbody");
+        tbody.innerHTML = ""; // Clear existing rows
+        rows.forEach((row) => tbody.appendChild(row));
+    });
+</script>
 
 {{#if user}}
-<a href="/shifts/add" class="btn btn-outline-primary mb-3 rounded-pill">New Shift</a>
+    <a href="/shifts/add" class="btn btn-outline-primary mb-3 rounded-pill">New Shift</a>
 {{/if}}

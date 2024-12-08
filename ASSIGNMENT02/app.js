@@ -50,7 +50,7 @@ passport.use(
     {
       clientID: configs.Authentication.GitHub.clientID,
       clientSecret: configs.Authentication.GitHub.clientSecret,
-      callbackURL: "http://localhost:3000/github/callback"
+      callbackURL: configs.Authentication.GitHub.callbackURL
     },
     async (accessToken, refreshToken, profile, done) => {
       let user = await User.findOne({ oauthID: profile.id });
@@ -85,6 +85,15 @@ mongoose
   .catch((err) => {
     console.log("Error connecting to MongoDB", err);
   });
+
+  const handlebars = require('hbs'); // Or any other Handlebars library you use
+
+// Register a custom helper to format the date
+hbs.registerHelper('formatDate', function (dateString) {
+  const date = new Date(dateString);
+  const options = { month: 'short', day: '2-digit', year: 'numeric' };
+  return date.toLocaleDateString('en-US', options);
+});
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

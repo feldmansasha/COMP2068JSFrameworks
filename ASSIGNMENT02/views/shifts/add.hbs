@@ -8,59 +8,89 @@
         type="date"
         name="shiftDate"
         id="shiftDate"
-        class="form-control border-primary"
+        class="form-control border-primary date-cell"
         required
       />
     </div>
     <div class="col-md-6">
       <label for="startTime" class="form-label fw-bold">Start Time</label>
-      <input
-        type="text"
+      <select
         name="startTime"
         id="startTime"
         class="form-control border-primary"
-        placeholder="e.g., 09:00 AM"
         required
-      />
+      >
+        <option value="" disabled selected>Select Start Time</option>
+        <option value="10:00 AM">10:00 AM</option>
+        <option value="11:00 AM">11:00 AM</option>
+        <option value="12:00 PM">12:00 PM</option>
+        <option value="1:00 PM">1:00 PM</option>
+        <option value="2:00 PM">2:00 PM</option>
+        <option value="3:00 PM">3:00 PM</option>
+        <option value="4:00 PM">4:00 PM</option>
+        <option value="5:00 PM">5:00 PM</option>
+        <option value="6:00 PM">6:00 PM</option>
+        <option value="7:00 PM">7:00 PM</option>
+        <option value="8:00 PM">8:00 PM</option>
+      </select>
     </div>
   </div>
 
   <div class="row mb-3">
     <div class="col-md-6">
       <label for="endTime" class="form-label fw-bold">End Time</label>
-      <input
-        type="text"
+      <select
         name="endTime"
         id="endTime"
         class="form-control border-primary"
-        placeholder="e.g., 05:00 PM"
         required
-      />
+      >
+        <option value="" disabled selected>Select End Time</option>
+        <option value="10:00 AM">10:00 AM</option>
+        <option value="11:00 AM">11:00 AM</option>
+        <option value="12:00 PM">12:00 PM</option>
+        <option value="1:00 PM">1:00 PM</option>
+        <option value="2:00 PM">2:00 PM</option>
+        <option value="3:00 PM">3:00 PM</option>
+        <option value="4:00 PM">4:00 PM</option>
+        <option value="5:00 PM">5:00 PM</option>
+        <option value="6:00 PM">6:00 PM</option>
+        <option value="7:00 PM">7:00 PM</option>
+        <option value="8:00 PM">8:00 PM</option>
+      </select>
     </div>
     <div class="col-md-6">
       <label for="store" class="form-label fw-bold">Store</label>
-      <input
-        type="text"
+      <select
         name="store"
         id="store"
         class="form-control border-primary"
-        placeholder="e.g., Downtown Store"
         required
-      />
+      >
+        <option value="" disabled selected>Select Brand</option>
+        <option value="Chatr">Chatr</option>
+        <option value="Fido">Fido</option>
+        <option value="Rogers">Rogers</option>
+      </select>
     </div>
   </div>
 
   <div class="row mb-3">
     <div class="col-md-6">
       <label for="location" class="form-label fw-bold">Location</label>
-      <input
-        type="text"
+      <select
         name="location"
         id="location"
         class="form-control border-primary"
-        placeholder="e.g., 123 Main St"
         required
-      />
+      >
+        <option value="" disabled selected>Select Location</option>
+        <option value="Georgian Mall">Georgian Mall</option>
+        <option value="Bayfield">Bayfield</option>
+        <option value="Big Bay">Big Bay</option>
+        <option value="Park Place">Park Place</option>
+        <option value="Cedar Pointe">Cedar Pointe</option>
+      </select>
     </div>
     <div class="col-md-6">
       <label for="yourName" class="form-label fw-bold">Your Name</label>
@@ -69,7 +99,6 @@
         name="yourName"
         id="yourName"
         class="form-control border-primary"
-        placeholder="e.g., John Doe"
       />
     </div>
   </div>
@@ -81,7 +110,6 @@
       name="yourPhone"
       id="yourPhone"
       class="form-control border-primary"
-      placeholder="e.g., 555-1234"
     />
   </div>
 
