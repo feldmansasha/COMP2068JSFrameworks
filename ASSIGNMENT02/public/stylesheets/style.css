@@ -1,0 +1,18 @@
+/* Ensure the footer sticks to the bottom when there is insufficient content */
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+.page-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Full viewport height */
+}
+
+.content {
+  flex: 1; /* Allow content to grow and push the footer down */
+}
+
+/* Add additional custom styles here */

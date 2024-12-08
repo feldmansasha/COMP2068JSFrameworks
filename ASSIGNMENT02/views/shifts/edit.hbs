@@ -1,0 +1,97 @@
+<form method="POST" class="container p-5 bg-white shadow rounded-3">
+  <h2 class="text-center mb-4 text-warning">Edit Shift</h2>
+
+  <div class="row mb-3">
+    <div class="col-md-6">
+      <label for="shiftDate" class="form-label fw-bold">Shift Date</label>
+      <input
+        type="date"
+        name="shiftDate"
+        id="shiftDate"
+        value="2024-12-07"
+        class="form-control border-secondary"
+        readonly
+        required
+      />
+    </div>
+    <div class="col-md-6">
+      <label for="startTime" class="form-label fw-bold">Start Time</label>
+      <input
+        type="text"
+        name="startTime"
+        id="startTime"
+        value="{{shift.startTime}}"
+        class="form-control border-secondary"
+        readonly
+        required
+      />
+    </div>
+  </div>
+
+  <div class="row mb-3">
+    <div class="col-md-6">
+      <label for="endTime" class="form-label fw-bold">End Time</label>
+      <input
+        type="text"
+        name="endTime"
+        id="endTime"
+        value="{{shift.endTime}}"
+        class="form-control border-secondary"
+        readonly
+        required
+      />
+    </div>
+    <div class="col-md-6">
+      <label for="store" class="form-label fw-bold">Store</label>
+      <input
+        type="text"
+        name="store"
+        id="store"
+        value="{{shift.store}}"
+        class="form-control border-secondary"
+        readonly
+        required
+      />
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <label for="location" class="form-label fw-bold">Location</label>
+    <input
+      type="text"
+      name="location"
+      id="location"
+      value="{{shift.location}}"
+      class="form-control border-secondary"
+      readonly
+      required
+    />
+  </div>
+
+  <div class="row mb-3">
+    <div class="col-md-6">
+      <label for="yourName" class="form-label fw-bold text-primary">Your Name</label>
+      <input
+        type="text"
+        name="yourName"
+        id="yourName"
+        value="{{shift.yourName}}"
+        class="form-control border-primary"
+        placeholder="e.g., John Doe"
+      />
+    </div>
+    <div class="col-md-6">
+      <label for="yourPhone" class="form-label fw-bold text-primary">Your Phone</label>
+      <input
+        type="text"
+        name="yourPhone"
+        id="yourPhone"
+        value="{{shift.yourPhone}}"
+        class="form-control border-primary"
+        placeholder="e.g., 555-1234"
+      />
+    </div>
+  </div>
+
+  <button type="submit" class="btn btn-warning w-100 py-2 fw-bold">Save Changes</button>
+</form>

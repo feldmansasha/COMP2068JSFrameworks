@@ -1,0 +1,65 @@
+<div class="container d-flex justify-content-center align-items-center vh-100">
+  <div class="card shadow-sm p-4" style="width: 100%; max-width: 400px;">
+    <h1 class="text-center mb-4">Register</h1>
+
+    <form method="post">
+      <!-- Username -->
+      <div class="mb-3">
+        <label for="username" class="form-label">Email *</label>
+        <input
+          type="email"
+          name="username"
+          id="username"
+          class="form-control"
+          placeholder="email@example.com"
+          required
+        />
+      </div>
+
+      <!-- Password -->
+      <div class="mb-3">
+        <label for="password" class="form-label">Password *</label>
+        <input
+          type="password"
+          name="password"
+          id="password"
+          class="form-control"
+          required
+          pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+          title="Password must contain at least one uppercase letter, one lowercase letter, one digit, and be at least 8 characters long"
+        />
+        <div class="form-text">
+          Must contain at least one uppercase letter, one lowercase letter, one
+          digit, and be at least 8 characters long.
+        </div>
+      </div>
+
+      <!-- Confirm Password -->
+      <div class="mb-3">
+        <label for="confirm" class="form-label">Confirm Password *</label>
+        <input
+          type="password"
+          name="confirm"
+          id="confirm"
+          class="form-control"
+          required
+          pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+          title="Password must match the same rules as above."
+        />
+      </div>
+
+      <!-- Register Button -->
+      <div class="d-grid mb-3">
+        <button type="submit" class="btn btn-info text-white">Register</button>
+      </div>
+
+      <hr />
+
+      <!-- Login Link -->
+      <p class="text-center">
+        Already have an account?
+        <a href="/login" title="Login">Login</a>
+      </p>
+    </form>
+  </div>
+</div>

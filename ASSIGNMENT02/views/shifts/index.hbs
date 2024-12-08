@@ -1,0 +1,40 @@
+<div class="table-responsive">
+    <table class="table table-bordered table-striped table-hover">
+        <thead class="thead-dark">
+            <tr>
+                <th>Date</th>
+                <th>Start Time</th>
+                <th>End Time</th>
+                <th>Store</th>
+                <th>Location</th>
+                <th>Your Name</th>
+                <th>Your Number</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each dataset}}
+                <tr>
+                    <td>{{this.shiftDate}}</td>
+                    <td>{{this.startTime}}</td>
+                    <td>{{this.endTime}}</td>
+                    <td>{{this.store}}</td>
+                    <td>{{this.location}}</td>
+                    <td>{{this.yourName}}</td>
+                    <td>{{this.yourPhone}}</td>
+                    <td>
+                        {{#if ../user}}
+                        <a href="/shifts/edit/{{this._id}}" class="btn btn-outline-info btn-sm rounded-pill">Edit</a>
+                        &nbsp;
+                        <a href="/shifts/delete/{{this._id}}" class="btn btn-outline-danger btn-sm rounded-pill">Delete</a>
+                        {{/if}}
+                    </td>
+                </tr>
+            {{/each}}
+        </tbody>
+    </table>
+    
+</div>
+
+{{#if user}}
+<a href="/shifts/add" class="btn btn-outline-primary mb-3 rounded-pill">New Shift</a>
+{{/if}}
