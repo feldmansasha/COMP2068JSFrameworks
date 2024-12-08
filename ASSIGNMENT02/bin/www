@@ -5,7 +5,7 @@
  */
 
 var app = require('../app');
-var debug = require('debug')('a2-crud:server');
+var debug = require('debug')('assignment02:server');
 var http = require('http');
 
 /**
